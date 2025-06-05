@@ -57,4 +57,4 @@ metro-cache/
 .kotlin/
 
 # TypeScript
-*.tsbuildinfo
+*.tsbuildinfoconstants/firebaseConfig.js
