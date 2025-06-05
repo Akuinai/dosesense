@@ -1,0 +1,60 @@
+# Dependencies
+node_modules/
+ios/Pods/
+android/.gradle/
+android/.idea/
+
+# Build outputs
+dist/
+web-build/
+build/
+*.apk
+*.aab
+
+# Expo
+.expo/
+expo-env.d.ts
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Editor/IDE
+.idea/
+.vscode/
+*.swp
+
+# Environment
+.env
+.env.*
+.env*.local
+*.pem
+*.key
+*.p8
+*.p12
+*.jks
+*.mobileprovision
+
+# Debug logs
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+*.log
+
+# Metro
+.metro-cache/
+metro-cache/
+.metro-health-check*
+
+# Version control leftovers
+*.orig.*
+*.rej
+
+# Kotlin (Android)
+.kotlin/
+
+# TypeScript
+*.tsbuildinfo
