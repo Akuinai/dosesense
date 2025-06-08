@@ -1,38 +1,47 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
-import LogoHeader from '../components/LogoHeader';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import ScreenHeader from '../components/ScreenHeader.js';
 
 export default function StatsScreen() {
     return (
-        <View style={styles.container}>
-            <LogoHeader />
-            <View style={styles.content}>
-                <Text style={styles.title}>Trends & statistics📊</Text>
-                <Text style={styles.subtitle}>Will come soon!</Text>
-            </View>
-        </View>
+        <ScrollView contentContainerStyle={styles.container}>
+            <ScreenHeader />
+            <Text style={styles.header}>Trends & statistics</Text>
+
+            <Text style={styles.sectionTitle}>Inzichten</Text>
+            <Text style={styles.text}>Deze functionaliteit komt binnenkort beschikbaar. Binnenkort zie je hier trends in stemming, energie en supplementgebruik op basis van je logs.</Text>
+
+            <Text style={styles.sectionTitle}>Statistieken</Text>
+            <Text style={styles.text}>Bekijk hier straks gemiddelden per supplement, doseerpatronen en persoonlijke progressie.</Text>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: '#2A2929',
-        paddingHorizontal: 20,
-        paddingTop: 20,
+        padding: 20,
+        paddingTop: 50,
     },
-    content: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    title: {
-        color: '#FFFFFF',
-        fontSize: 22,
+    header: {
+        fontSize: 24,
+
         fontWeight: 'bold',
+        color: '#FFFFFF',
+        marginBottom: 20,
+        textAlign: 'center',
     },
-    subtitle: {
-        color: '#A8B0C3',
-        marginTop: 10,
+    sectionTitle: {
+        fontSize: 18,
+        fontWeight: '600',
+        color: '#4F79C6',
+        marginTop: 20,
+        marginBottom: 5,
+    },
+    text: {
+        fontSize: 16,
+        color: '#CCCCCC',
+        marginBottom: 10,
     },
 });

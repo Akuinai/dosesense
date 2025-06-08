@@ -1,23 +1,24 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import LogScreen from '../screens/LogScreen';
-import LogHistoryScreen from '../screens/LogHistoryScreen';
+import LogScreen from '../screens/LogScreen'; // hoofd logformulier
+import LogHistoryScreen from '../screens/LogHistoryScreen'; // geschiedenis
 
 const Stack = createNativeStackNavigator();
 
 export default function LogStack() {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            initialRouteName="LogMain"
+            screenOptions={{ headerShown: false }} // geen witte ruimte
+        >
             <Stack.Screen
                 name="LogMain"
                 component={LogScreen}
-                options={{ headerShown: false }}
             />
             <Stack.Screen
                 name="History"
                 component={LogHistoryScreen}
-                options={{ title: 'Geschiedenis' }}
             />
         </Stack.Navigator>
     );

@@ -17,13 +17,13 @@ export default function App() {
                 screenOptions={({ route }) => ({
                     headerShown: false,
                     tabBarStyle: {
-                        backgroundColor: '#1E2A47',
+                        backgroundColor: '#181717',
                         height: 70,
                         paddingTop: 5,
                         paddingBottom: 5,
                     },
-                    tabBarActiveTintColor: '#FBE39B',
-                    tabBarInactiveTintColor: '#A8B0C3',
+                    tabBarActiveTintColor: '#4F79C6',
+                    tabBarInactiveTintColor: '#376DCE',
                     tabBarIcon: ({ focused, color, size }) => {
                         let iconName;
 

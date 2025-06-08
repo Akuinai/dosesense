@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import LogoHeader from '../components/LogoHeader';
+import ScreenHeader from '../components/ScreenHeader';
+import PrimaryButton from '../components/PrimaryButton';
 import {
     View,
     Text,
     TextInput,
-    Button,
     StyleSheet,
     Keyboard,
     TouchableWithoutFeedback,
@@ -44,7 +44,7 @@ export default function LogScreen() {
                 created: new Date()
             });
 
-            function generateAdvice({ dose, mood, energy }) {
+            const generateAdvice = ({ dose, mood, energy }) => {
                 const d = parseFloat(dose);
                 const m = parseInt(mood);
                 const e = parseInt(energy);
@@ -62,7 +62,7 @@ export default function LogScreen() {
                 }
 
                 return result || 'Houd je huidige dosering aan en blijf regelmatig loggen.';
-            }
+            };
 
             const generatedAdvice = generateAdvice({ dose, mood, energy });
             setAdvice(generatedAdvice);
@@ -97,8 +97,8 @@ export default function LogScreen() {
         >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
                 <ScrollView contentContainerStyle={styles.container}>
-                    <LogoHeader />
-                    <Text style={styles.header}>📝 Nieuwe log</Text>
+                    <ScreenHeader />
+                    <Text style={styles.header}>Nieuwe log</Text>
 
                     <Text style={styles.label}>Supplement</Text>
                     <TextInput
@@ -163,23 +163,25 @@ export default function LogScreen() {
                     />
 
                     <View style={styles.buttonRow}>
-                        <View style={styles.halfButton}>
-                            <Button title="Opslaan" onPress={submitLog} />
-                        </View>
-                        <View style={styles.halfButton}>
-                            <Button
-                                title="Annuleer"
-                                color="#888"
-                                onPress={() => {
-                                    setDose('');
-                                    setMood('');
-                                    setEnergy('');
-                                    setSupplement('');
-                                    setNotes('');
-                                    setAdvice('');
-                                }}
-                            />
-                        </View>
+                        <PrimaryButton
+                            title="Save"
+                            iconName="checkmark"
+                            onPress={submitLog}
+                            color="#4F79C6"
+                        />
+                        <PrimaryButton
+                            title="Cancel"
+                            iconName="close"
+                            onPress={() => {
+                                setDose('');
+                                setMood('');
+                                setEnergy('');
+                                setSupplement('');
+                                setNotes('');
+                                setAdvice('');
+                            }}
+                            color="#5C7DC5"
+                        />
                     </View>
 
                     {advice ? <Text style={styles.advice}>{advice}</Text> : null}
@@ -196,9 +198,11 @@ export default function LogScreen() {
                         </View>
                     )}
 
-                    <Button
+                    <PrimaryButton
                         title="Bekijk volledige geschiedenis"
+                        iconName="time-outline"
                         onPress={() => navigation.navigate('History')}
+                        color="#3E5B99"
                     />
                 </ScrollView>
             </TouchableWithoutFeedback>
@@ -254,11 +258,13 @@ const styles = StyleSheet.create({
     },
     buttonRow: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 35,
         marginBottom: 20,
     },
     halfButton: {
-        width: '48%',
+        width: 150,
     },
     advice: {
         textAlign: 'center',
